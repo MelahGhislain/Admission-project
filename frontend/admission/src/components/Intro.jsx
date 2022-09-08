@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Button from './Button'
 import Header from './Header'
+import AppContext from '../AppContext/AppContext'
 
 const Intro = () => {
+  const {setPageIndex } = useContext(AppContext)
+  const handleClick = () =>{
+    setPageIndex(1)
+  }
   return (
     <>
         <Header>
@@ -10,7 +15,7 @@ const Intro = () => {
             <p className='text-sm text-neutral-600'>Please fill out the application form carefully</p>
         </Header>
         <div className="mt-8">
-            <Button text="START" />
+            <Button text="START" onClick={handleClick}/>
         </div>
     </>
   )

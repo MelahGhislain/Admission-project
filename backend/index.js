@@ -2,7 +2,7 @@ const express = require('express')
 const cors  = require("cors")
 require('dotenv').config()
 const connect = require('./db')
-const { connection } = require('mongoose')
+const routes = require('./routes')
 
 const port  = process.env.PORT
 const app  = express()
@@ -10,6 +10,7 @@ const app  = express()
 app.use(cors({origin: true}))
 app.use(express.json())
 
+app.use('/api/v1', routes())
 
-// connection(app)
-app.listen(port, ()=>console.log(`app running on port ${port}`))
+connect(app)
+// app.listen(port, ()=>console.log(`app running on port ${port}`))
