@@ -12,7 +12,7 @@ const Education = () => {
   return (
     <>
         <Header>
-            <p className='text-2xl text-neutral-700 font-bold text-start'>Information Diplome</p>
+            <p className='text-xl md:text-2xl text-neutral-700 font-bold text-start'>Information Diplome</p>
         </Header>
         
         {educationIndex === 0? <Degree /> : null}

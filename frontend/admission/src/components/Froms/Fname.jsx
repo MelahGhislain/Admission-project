@@ -46,11 +46,12 @@ const Fname = () => {
 
   return (
     <>
-      <form className='py-4 px-16 text-center w-full my-4 ' onSubmit={handleSubmit}>
+      <form className='py-4 px-0 md:px-16 text-center w-full my-4 ' onSubmit={handleSubmit}>
       {/* ==================== Full Name =====================*/}
       <div className={`px-2 py-2 ${error && "bg-red-200/30"}`}>
         <p className="text-start text-neutral-700 text-sm"> Nom et Prenom <span className='text-red-500'>*</span></p>
-        <div className='flex w-full space-x-2'>
+        
+        <div className='flex w-full flex-col md:flex-row md:space-x-2 '>
           <div className='flex flex-col items-start flex-1 w-full'>
             <input type="text" name='first_name' onChange={handleChange} value={form.first_name} className='w-full border py-2 rounded-none outline-none px-1'/>
             <label htmlFor="first_name" className='text-xs text-neutral-400'>Nom</label>

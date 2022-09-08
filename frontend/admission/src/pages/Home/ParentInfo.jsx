@@ -13,7 +13,7 @@ const ParentInfo = () => {
   return (
     <>
         <Header>
-            <p className='text-2xl text-neutral-700 font-bold text-start'>Information Parental/Tutor</p>
+            <p className='text-xl md:text-2xl text-neutral-700 font-bold text-start'>Information Parental/Tutor</p>
         </Header>
         
         {parentIndex === 0? <FatherInfo /> : null}

@@ -11,33 +11,46 @@ import NavBar from '../../components/NavBar'
 const Home = () => {
 
   const [toggle, setToggle] = useState(false)
+  const [display, setDisplay] = useState(false)
   const {pageIndex } = useContext(AppContext)
 
+  const handleApply =()=>{
+    setToggle(false)
+    setDisplay(true)
+  }
+  if(display){
+    setTimeout(()=>{
+      setDisplay(false)
+    }, 3000)
+  }
 
   return (
-    <section className=''>
+    <section className='relative'>
       <NavBar onClick={()=> setToggle(true)}/>
       {toggle && <div className='w-full min-h-screen bg-gray-500/50 flex justify-center items-center py-4'>
-          <div className="bg-white rounded w-[80%] h-[90%] py-4">
-              <header className="text-3xl font-bold p-4">University Application Form</header>
+          <div className="bg-white rounded w-[90%] md:w-[80%]  h-[90%] py-4">
+              <header className="text-xl md:text-3xl font-bold p-4">University Application Form</header>
               <div className='w-full p-1 bg-gray-500/20'></div>
               <div className='w-[70%] m-auto flex flex-col items-center pt-16'>
                   {pageIndex === 0? <Intro /> : null}
                   {pageIndex === 1? <PersonalInfo />  : null}
                   {pageIndex === 2? < ParentInfo/> : null}
                   {pageIndex === 3? <Education /> : null}
-                  {pageIndex === 4? <Apply />: null}
+                  {pageIndex === 4? <Apply onClick={handleApply}/>: null}
                   
               </div>
           </div>
+      </div>}
+      {display && <div className="absolute right-[40%] text-white bg-green-600/70 rounded py-2 px-4">
+        Application submitted sucessfully
       </div>}
     </section>
   )
 }
 
-export const Apply = () => {
+export const Apply = ({onClick}) => {
   return (
-    <Button text="Apply" />
+    <Button text="Apply" onClick={onClick}/>
   )
 }
 export default Home

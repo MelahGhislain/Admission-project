@@ -16,7 +16,7 @@ const PersonalInfo = () => {
   return (
     <>
         <Header>
-            <p className='text-2xl text-neutral-700 font-bold text-start'>Personal Information</p>
+            <p className='text-xl md:text-2xl text-neutral-700 font-bold text-start'>Personal Information</p>
         </Header>
         {personalIndex === 0? <Fname />: null}
         {personalIndex === 1? <Cycle />: null}

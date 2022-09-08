@@ -7,9 +7,10 @@ const ContextProvider = ({children}) => {
     const [personalIndex, setPersonalIndex] = useState(0)
     const [parentIndex, setParentIndex] = useState(0)
     const [educationIndex, setEducationIndex] = useState(0)
+    const [studentLength, setStudentLength] = useState(0)
     
   return (
-    <AppContext.Provider value={{pageIndex, setPageIndex, personalIndex, setPersonalIndex, parentIndex, setParentIndex, educationIndex, setEducationIndex}}>
+    <AppContext.Provider value={{pageIndex, setPageIndex, personalIndex, setPersonalIndex, parentIndex, setParentIndex, educationIndex, setEducationIndex, studentLength, setStudentLength}}>
         {children}
     </AppContext.Provider>
   )

@@ -44,7 +44,7 @@ const Phone = () => {
 
   return (
     <>
-      <form className='py-4 px-16 text-center w-full my-4' onSubmit={handleSubmit}>
+      <form className='py-4 px-0 md:px-16 text-center w-full my-4' onSubmit={handleSubmit}>
           {/* ==================== Phone Number =====================*/}
           <div className={`px-2 py-2 ${error && "bg-red-200/30"}`}>
               <p className="text-start text-neutral-700 text-sm"> Phone Number <span className='text-red-500'>*</span></p>

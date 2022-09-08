@@ -47,11 +47,11 @@ const   DOB = () => {
   }
   return (
     <>
-      <form className='py-4 px-16 text-center w-full my-4' onSubmit={handleSubmit}>
+      <form className='py-4 px-0 md:px-16 text-center w-full my-4' onSubmit={handleSubmit}>
       {/* ==================== Age =====================*/}
           <div className={`px-2 py-2 ${error && "bg-red-200/30"}`}>
               <p className="text-start text-neutral-700 text-sm"> Date et Lieu de Naissance</p>
-              <div className='flex w-full space-x-2'>
+              <div className='flex w-full flex-col md:flex-row md:space-x-2 '>
                 <div className='flex w-full space-x-2 justify-start '>
                   <div className='flex flex-col items-start flex-1 w-full'>
                     <input type="date" name='dob' value={form.dob} onChange={handleChange} className='w-full border py-2 rounded-none outline-none px-1'/>
