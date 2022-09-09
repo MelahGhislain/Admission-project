@@ -5,7 +5,7 @@ import axios from 'axios'
 import { useEffect } from 'react'
 
 
-const BASE_URL = process.env.BASE_URL || "http://localhost:5050/api/v1"
+const BASE_URL = process.env.REACT_APP_BASE_URL 
 let value = {
   first_name: "",
   last_name: ""

@@ -3,7 +3,10 @@ const studentRoutes = require('./student.route')
 
 module.exports = ()=>{
 
-    router.use("/student", studentRoutes())
+    router.get('/', (req, res)=>{
+        res.status(200).send("Admission api working")
+    })
 
+    router.use("/student", studentRoutes())
     return router
 }
