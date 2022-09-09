@@ -32,7 +32,7 @@ const Dashboard = () => {
             
             console.log(err)
           })
-    },[isDeleted])
+    },[isDeleted, setStudentLength])
   return (
     
 <div class="table w-full p-2">

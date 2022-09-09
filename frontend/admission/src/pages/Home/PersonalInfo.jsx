@@ -1,7 +1,6 @@
 import React from 'react'
 import { useContext } from 'react'
 import AppContext from '../../AppContext/AppContext'
-import Adress from '../../components/Froms/Adress'
 import Cycle from '../../components/Froms/Cycle'
 import DOB from '../../components/Froms/DOB'
 import Email from '../../components/Froms/Email'

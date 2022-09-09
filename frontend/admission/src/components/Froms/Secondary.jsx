@@ -33,6 +33,7 @@ const Secondary = () => {
     }
     const res = localStorage.getItem("student")
     const data = JSON.parse(res)
+    
     console.log(data._id)
     axios.patch(`${BASE_URL}/student/update/${data._id}`, form).then(res=>{
       

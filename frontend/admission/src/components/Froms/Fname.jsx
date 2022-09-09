@@ -2,9 +2,10 @@ import React, { useContext, useState } from 'react'
 import Button from '../Button'
 import AppContext from '../../AppContext/AppContext'
 import axios from 'axios'
+import { useEffect } from 'react'
 
 
-const BASE_URL = process.env.BASE_URL || "http://localhost:5050/api/v1"
+const BASE_URL = process.env.REACT_APP_BASE_URL 
 let value = {
   first_name: "",
   last_name: ""
@@ -13,8 +14,7 @@ let value = {
 const Fname = () => {
   const [error, setError] = useState(false)
   const [form, setForm] = useState(value)
-  const {setPageIndex } = useContext(AppContext)
-  const {setPersonalIndex } = useContext(AppContext)
+  const {setPageIndex,setPersonalIndex } = useContext(AppContext)
 
   const handleChange = (e) =>{
     setForm(current => {return{ ...current ,[e.target.name]: e.target.value}})
@@ -24,6 +24,17 @@ const Fname = () => {
     setPageIndex(0)
   }
 
+  // useEffect(()=>{
+  //   // console.log(store)
+
+  //   if(store.full_name){
+  //     const data = store.full_name.split(" ")
+  //     const first_name = data[0]
+  //     const last_name = data[1]
+  //     setForm(current => {return {first_name, last_name}})
+  //   }
+  // },[])
+
   const handleSubmit = (e) => {
     e.preventDefault()
     
@@ -31,10 +42,15 @@ const Fname = () => {
       setError(true)
       return
     }
+    // if(store.full_name !== ""){
+    //   setPersonalIndex(1)
+    //   return
+    // }
     console.log(BASE_URL)
     axios.post(`${BASE_URL}/student/create`, form).then(res=>{
       // console.log(res.data.data)
       localStorage.setItem("student", JSON.stringify(res.data.data))
+      // setStore(res.data.data)
       setError(false)
       setPersonalIndex(1)
     }).catch(err=>{

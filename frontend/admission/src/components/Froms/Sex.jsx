@@ -16,6 +16,7 @@ const Sex = () => {
   const {setPersonalIndex } = useContext(AppContext)
 
   const handleChange = (e) =>{
+    // console.log(e.target.value)
     setForm(current => {return{ ...current ,[e.target.name]: e.target.value}})
   }
 
@@ -25,7 +26,7 @@ const Sex = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    
+    console.log(form)
     if(form.sex.trim() === "" || form.status.trim() === "" ){
       setError(true)
       return
@@ -53,9 +54,17 @@ const Sex = () => {
         <p className="text-start text-neutral-700 text-sm"> Sex et Statution Matrimonial<span className='text-red-500'>*</span></p>
         <div className='flex w-full flex-col md:flex-row md:space-x-2 '>
           <div className='flex flex-col items-start flex-1 w-full'>
-            <input type="text" name='sex' onChange={handleChange} value={form.sex} className='w-full border py-2 rounded-none outline-none px-1'/>
+            {/* <input type="text" name='sex' onChange={handleChange} value={form.sex} className='w-full border py-2 rounded-none outline-none px-1'/> */}
+            
+            <select onChange={handleChange} name="sex" className="w-full border py-2 rounded-none outline-none px-1 ">
+              <option> </option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+
             <label htmlFor="sex" className='text-xs text-neutral-400'>Sex</label>
           </div>
+
           <div className='flex flex-col items-start flex-1 w-full '>
             <input type="text" name='status' onChange={handleChange} value={form.status} className='w-full border py-2 rounded-none outline-none px-1'/>
             <label htmlFor="status" className='text-xs text-neutral-400'>Statution Matrimonial</label>
