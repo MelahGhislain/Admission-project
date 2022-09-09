@@ -27,6 +27,7 @@ const Phone = () => {
       setError(true)
       return
     }
+    
     const res = localStorage.getItem("student")
     const data = JSON.parse(res)
     console.log(data._id)

@@ -3,11 +3,12 @@ const cors  = require("cors")
 require('dotenv').config()
 const connect = require('./db')
 const routes = require('./routes')
+const config = require('./config')
 
-const port  = process.env.PORT
+const {allowedDomains} = config
 const app  = express()
 
-app.use(cors({origin: true}))
+app.use(cors({origin: allowedDomains}))
 app.use(express.json())
 
 app.use('/api/v1', routes())

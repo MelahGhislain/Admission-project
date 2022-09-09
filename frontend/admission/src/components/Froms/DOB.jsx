@@ -32,8 +32,10 @@ const   DOB = () => {
       return
     }
     const res = localStorage.getItem("student")
+    // console.log("============= ========= =======")
+    // console.log(res)
     const data = JSON.parse(res)
-    console.log(data._id)
+    // console.log(data)
     axios.patch(`${BASE_URL}/student/update/${data._id}`, form).then(res=>{
       
       localStorage.setItem("student", JSON.stringify(res.data.data))

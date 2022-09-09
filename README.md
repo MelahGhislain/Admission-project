@@ -1,8 +1,8 @@
 # Admission-project
 
-##student 
+## Student 
 ![client](./client.png)
 
 
-##admin 
+## Admin 
 ![client](./admin.png)

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import Button from '../Button'
 import AppContext from '../../AppContext/AppContext'
 import axios from 'axios'
+import { useEffect } from 'react'
 
 const BASE_URL = process.env.BASE_URL || "http://localhost:5050/api/v1"
 
@@ -10,6 +11,11 @@ const Email = () => {
   const [error, setError] = useState(false)
   const [form, setForm] = useState({email:""})
   const {setPersonalIndex } = useContext(AppContext)
+  
+  // useEffect(()=>{
+  //   console.log(store.email)
+  //   setForm(current => {return {email: store.email}})
+  // },[])
 
   const handleChange = (e) =>{
     setForm(current => {return {...current, [e.target.name]: e.target.value}})
@@ -26,12 +32,17 @@ const Email = () => {
       setError(true)
       return
     }
+    // if(store.email !== ""){
+    //   setPersonalIndex(3)
+    //   return
+    // }
     const res = localStorage.getItem("student")
     const data = JSON.parse(res)
     console.log(data._id)
     axios.patch(`${BASE_URL}/student/update/${data._id}`, form).then(res=>{
       
       localStorage.setItem("student", JSON.stringify(res.data.data))
+      // setStore(res.data.data)
       setError(false)
       setPersonalIndex(3)
     }).catch(err=>{
